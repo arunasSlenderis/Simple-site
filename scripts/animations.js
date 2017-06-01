@@ -4,11 +4,13 @@
   var dropdownMenu = document.querySelector("ul.submenu");
   var nav = document.querySelector(".fa-bars");
   var menu = document.querySelectorAll(".menu");
+  var arrow = document.querySelector(".arrow");
 
   dropdownA.addEventListener("click", function(e) {
     e.preventDefault();
     dropdownMenu.classList.toggle("displayNone");
     dropdownLi.style.height = "233px";
+    arrow.classList.toggle("displayNone");
 
     if(dropdownMenu.className.match(/\bdisplayNone\b/) || window.innerWidth > 640) {
       dropdownLi.style.height = "auto";
