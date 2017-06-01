@@ -1,0 +1,45 @@
+html {
+  font-family: Arial, sans-serif;
+}
+
+body, h1 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+.menu li {
+  padding-left: 20px;
+}
+
+.displayNone {
+  display: none !important;
+}
+
+p {
+  font-size: 0.9em;
+}
+
+p.validation {
+  margin: 0;
+  position: relative;
+  bottom: 15px;
+  font-size: 0.7em;
+  color: red;
+}

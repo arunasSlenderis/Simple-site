@@ -1,0 +1,363 @@
+@import "mixins.scss";
+@import "variables.scss";
+@import "globals.scss";
+
+body {
+  background-color: #e6e6e6;
+
+  header {
+    background-color: $primaryColor;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0 $headerSidePadding;
+
+    h1 {
+      color: $highlightColor;
+      position: absolute;
+      top: 38px;
+      left: $headerSidePadding;
+    }
+
+    .menu-top {
+      font-size: 0.8em;
+      @include navShadow(black);
+    }
+
+    .menu-primary {
+      @include navShadow(white);
+      a {
+        color: white;
+
+        &:hover {
+          @include navShadow(black);
+          color: black;
+        }
+      }
+    }
+
+    nav .arrow {
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid $dropdownColor;
+      margin: 0 auto;
+    }
+
+    nav ul, ul {
+      display: flex;
+    }
+
+    ul.submenu {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      position: absolute;
+      padding: 0;
+      margin-left: -25px;
+      margin-top: 5px;
+      width: 125px;
+
+      li {
+        padding: 5px;
+        background: $dropdownColor;
+
+        &:hover {
+          background: #666;
+          cursor: pointer;
+
+          a {
+            color: white;
+          }
+        }
+      }
+      // display: none;  /*temp*/
+    }
+
+    i.fa {
+      display: none;
+    }
+  }
+
+  main {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row-reverse;
+
+    aside {
+      padding: 20px;
+      flex: 1;
+
+      p {
+        text-align: justify;
+      }
+
+      hr {
+        height: 3px;
+        background: black;
+        border: none;
+      }
+
+      form {
+        border: 1px solid #888;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+
+        div label {
+          font-weight: bold;
+          font-size: 0.9em;
+        }
+
+        div {
+          width: 100%;
+        }
+
+        input, textarea {
+          padding: 5px 5px;
+          margin: 3px 0 15px 0;
+          width: 90%;
+        }
+
+        textarea {
+          height: 100px;
+          resize: none;
+        }
+
+        button {
+          width: 100px;
+          height: 30px;
+          background: $primaryColor;
+          color: white;
+          border: none;
+          cursor: pointer;
+
+          &:hover {
+            border: 2px solid darken($primaryColor, 20%);
+          }
+        }
+      }
+    }
+
+    section.upper {
+      flex: 2.5;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      article.main-article {
+        background: white;
+        text-align: justify;
+        padding: 20px;
+        margin-top: 30px;
+        float: left;
+      }
+
+      div.lower-texts {
+        display: flex;
+        align-items: stretch;
+      }
+
+      p.some-paragraph, article.links {
+        background: white;
+        flex: 1;
+        margin: 20px 0;
+        padding: 20px;
+
+      }
+
+      article.links {
+        margin-left: 20px;
+        p {
+          margin: 0;
+          a {
+            color: #0071bc;
+          }
+        }
+      }
+    }
+
+  }
+
+  section.additional-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #CCC;
+
+    p {
+      padding: 0 20px;
+    }
+  }
+
+  footer {
+    background: #666;
+    padding: 10px;
+    margin-top: 20px;
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+      width: 50%;
+      color: white;
+      margin-left: 40px;
+      padding: 0;
+
+      li:last-child {
+        border-right: none;
+      }
+
+      li {
+        border-right: 1px solid white;
+        width: 100%;
+        text-align: center;
+      }
+
+    }
+
+    small {
+      margin-left: 40px;
+      display: flex;
+
+      p {
+        width: 80%;
+        color: #b3b3b3;
+      }
+
+      h1 {
+        color: white;
+        font-size: 2.5em;
+      }
+    }
+
+
+  }
+}
+
+@media screen and (max-width: 800px) {
+  main {
+    flex-direction: column-reverse !important;
+  }
+
+  footer {
+    padding: 0;
+
+    ul {
+      margin: 0 !important;
+      width: 100% !important;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  body {
+    header {
+      padding: 0;
+      display: block;
+
+      h1 {
+        position: relative;
+        top: 5px;
+        left: 5px;
+      }
+
+      .mobile {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0;
+
+        li {
+          height: 30px;
+          line-height: 1.6em;
+          text-align: center;
+          cursor: pointer;
+          padding: 0;
+          font-size: 1.3em;
+
+          a {
+            width: 100%;
+          }
+
+          &:hover {
+            background: $highlightColor;
+            border: 2px solid darken($highlightColor, 20%);
+
+          }
+        }
+      }
+
+      nav ul.submenu {
+        .arrow {
+          display: none;
+        }
+
+        margin: 0;
+        position: relative;
+        width: auto;
+        font-size: 0.6em;
+
+        li {
+          padding-left: 30px;
+
+          &:hover {
+            border: none;
+          }
+        }
+      }
+
+      #li-submenu {
+        a {
+          i {
+            display: inline;
+            font-size: 1em;
+          }
+        }
+      }
+
+      i.fa {
+        display: block;
+        position: relative;
+        text-align: center;
+        font-size: 2em;
+        cursor: pointer;
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: 550px) {
+  div.lower-texts {
+    flex-direction: column;
+
+    article.links {
+      margin: 0 0 20px 0 !important;
+    }
+  }
+
+  section.additional-info {
+    flex-direction: column !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  footer {
+    ul {
+      flex-direction: column;
+
+      li {
+        border: none !important;
+      }
+    }
+
+    small {
+      align-items: center;
+
+      p {
+        padding-right: 10px;
+      }
+    }
+  }
+}
