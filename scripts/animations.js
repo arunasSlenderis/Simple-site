@@ -1,5 +1,5 @@
 (function() {
-  var dropdownA = document.querySelector("#li-submenu > a");3
+  var dropdownA = document.querySelector("#li-submenu > a");
   var dropdownLi = document.getElementById("li-submenu");
   var dropdownMenu = document.querySelector("ul.submenu");
   var nav = document.querySelector(".fa-bars");
